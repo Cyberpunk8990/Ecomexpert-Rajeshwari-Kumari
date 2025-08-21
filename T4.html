@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gift Guide - TISSO VISION</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: #fff;
+            height: 64px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-text {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .choose-gift-btn {
+            background: #ffd700;
+            color: #333;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease;
+            z-index: 1;
+        }
+
+        .choose-gift-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #333;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .choose-gift-btn:hover::before {
+            left: 0;
+        }
+
+        .choose-gift-btn:hover {
+            color: #fff;
+        }
+
+       
+
+        .banner-bg-square {
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            transform: translateY(-50%);
+            width: 250px;
+            height: 250px;
+            background-image: url('https://raw.githubusercontent.com/Cyberpunk8990/Rajeshwari-kumari/refs/heads/master/Frame%20(3).png?token=GHSAT0AAAAAADJLNXZIKBWZ2MG2DUXWP5XO2FETHCA ');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 8px;
+        }
+
+        .banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-text {
+            flex: 1;
+            max-width: 500px;
+            z-index: 3;
+            padding-left: 40px;
+        }
+
+        .banner-text h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .banner-text p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #555;
+            line-height: 1.8;
+            max-width: 400px;
+        }
+
+        .shop-now-btn {
+            background: #000;
+            color: #fff;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+            letter-spacing: 1px;
+        }
+
+        .shop-now-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ffd700;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .shop-now-btn:hover::before {
+            left: 0;
+        }
+
+        .shop-now-btn:hover {
+            color: #333;
+        }
+
+        .banner-illustration {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100%;
+            z-index: 2;
+        }
+
+       
+
+        /* Grid Section */
+        .grid-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+
+        /* New Popup Modal Design */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 0;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal-product-image {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-product-details {
+            padding: 25px;
+        }
+
+        .modal-product-title {
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-product-price {
+            font-size: 1.3rem;
+            color: #333;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .modal-product-description {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .variant-section {
+            margin-bottom: 20px;
+        }
+
+        .variant-label {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .color-selector {
+            display: flex;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .color-option {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #333;
+            border-right: 1px solid #ddd;
+            transition: all 0.2s ease;
+        }
+
+        .color-option:last-child {
+            border-right: none;
+        }
+
+        .color-option.active {
+            background: #000;
+            color: #fff;
+        }
+
+        .color-option:hover:not(.active) {
+            background: #f5f5f5;
+        }
+
+        .size-selector {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .size-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 0.95rem;
+            color: #333;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .size-select:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .size-selector::after {
+            content: '▼';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: #666;
+            pointer-events: none;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            background: #000;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: normal;
+            cursor: pointer;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .add-to-cart-btn::after {
+            content: '→';
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #333;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .header-text {
+                display: none;
+            }
+
+            .banner-section {
+                height: auto;
+                min-height: 600px;
+                padding: 40px 0;
+            }
+
+            .banner-bg-rectangular {
+                width: 80%;
+            }
+
+            .banner-bg-square {
+                width: 150px;
+                height: 150px;
+                right: 20px;
+            }
+
+            .banner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .banner-text {
+                max-width: 100%;
+                margin-bottom: 40px;
+                padding-left: 0;
+            }
+
+            .banner-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .illustration-grid {
+                grid-template-columns: repeat(6, 1fr);
+                max-width: 400px;
+            }
+
+            .illustration-item {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .product-image {
+                height: 200px;
+            }
+
+            .modal-content {
+                max-width: 90%;
+                margin: 20px;
+            }
+
+            .modal-product-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-text h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .illustration-grid {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 300px;
+            }
+        }
+
+        /* Animation for cart addition */
+        .cart-success {
+            background: #4caf50 !important;
+        }
+
+        .cart-success:after {
+            content: "✓ Added to Cart!";
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><img src="images/Group 1000007777 (1).png" alt=""></div>
+            <div class="header-right">
+                <span class="header-text">Find the ideal gift for your loved ones.</span>
+                <button class="choose-gift-btn">CHOOSE GIFT</button>
+            </div>
+        </div>
+    </header>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .banner-container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            background: #ffffff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .top-image-container {
+            width: 100%;
+            height: 390px;
+            background: #f8f9ff;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .bottom-section {
+            height: 402px;
+            display: flex;
+            position: relative;
+            justify-content: flex-end;
+        }
+
+        .right-image-container {
+            width: 890px;
+            height: 402px;
+            background: #f8f9ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .right-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scaleX(-1);
+        }
+
+        .content-overlay {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            z-index: 10;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .description {
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .cta-button {
+            background: #2c3e50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-button:hover {
+            background: #34495e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-button::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover::after {
+            transform: translateX(3px);
+        }
+
+        .image-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 300px 150px, 250px 120px;
+            background-position: 0 0, 150px 75px;
+            background-repeat: repeat;
+            opacity: 0.6;
+        }
+
+        .right-image-pattern {
+            background-size: 280px 180px, 300px 150px;
+            background-position: 0 0, 140px 90px;
+            transform: scaleX(-1);
+        }
+
+        .empty-space {
+            flex: 1;
+            background: #FFF;
+            position: relative;
+        }
+
+        /* Responsive Design for 1440px and below */
+        @media (max-width: 1440px) {
+            .banner-container {
+                margin: 0 20px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .banner-container {
+                margin: 0 15px;
+            }
+            
+            .right-image-container {
+                width: 70%;
+            }
+            
+            .content-overlay {
+                left: 30px;
+                bottom: 30px;
+                max-width: 350px;
+                padding: 25px;
+            }
+            
+            .title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .banner-container {
+                margin: 0 10px;
+            }
+            
+            .top-image-container {
+                height: 300px;
+            }
+            
+            .bottom-section {
+                height: 350px;
+            }
+            
+            .right-image-container {
+                width: 75%;
+                height: 350px;
+            }
+            
+            .content-overlay {
+                left: 20px;
+                bottom: 20px;
+                max-width: 320px;
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-container {
+                margin: 0 10px;
+            }
+            
+            .top-image-container {
+                height: 250px;
+            }
+            
+            .bottom-section {
+                height: auto;
+                flex-direction: column;
+            }
+            
+            .right-image-container {
+                width: 100%;
+                height: 300px;
+            }
+            
+            .empty-space {
+                display: none;
+            }
+            
+            .content-overlay {
+                position: relative;
+                left: 0;
+                bottom: 0;
+                max-width: none;
+                margin: 20px;
+                background: white;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .banner-container {
+                margin: 0 5px;
+            }
+            
+            .top-image-container {
+                height: 200px;
+            }
+            
+            .right-image-container {
+                height: 250px;
+            }
+            
+            .content-overlay {
+                margin: 15px;
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+            
+            .description {
+                font-size: 0.85rem;
+                margin-bottom: 20px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-container {
+                margin: 0;
+            }
+            
+            .top-image-container {
+                height: 180px;
+            }
+            
+            .right-image-container {
+                height: 220px;
+            }
+            
+            .content-overlay {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            
+            .description {
+                font-size: 0.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Animation effects */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .image-pattern {
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .right-image-pattern {
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .top-image, .right-image {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .banner-container {
+                max-width: none;
+                margin: 0;
+                box-shadow: none;
+            }
+            
+            .cta-button {
+                background: #333 !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <!-- Top Image Container -->
+        <div class="top-image-container">
+            <img src="images/Frame (3).png" class="top-image" />
+            <div class="image-pattern"></div>
+        </div>
+
+        <!-- Bottom Section with Right Image and Content -->
+        <div class="bottom-section">
+            <!-- Empty space on the left -->
+            <div class="empty-space"></div>
+            
+            <!-- Right Image Container -->
+            <div class="right-image-container">
+                <img src="images/Frame (4).png" class="right-image" />
+                <div class="image-pattern right-image-pattern"></div>
+            </div>
+            
+            <!-- Content Overlay positioned on the left side of the banner -->
+            <div class="content-overlay">
+                <h1 class="title">The Gift Guide</h1>
+                <p class="description">
+                    Discover Joy: Your Ultimate Holiday Gift Destination. 
+                    Explore our curated selection and find the perfect gifts to 
+                    delight your loved ones this holiday season.
+                </p>
+                <button class="choose-gift-btn" id="shopBtn">Shop Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const shopBtn = document.getElementById('shopBtn');
+            const imagePatterns = document.querySelectorAll('.image-pattern');
+
+            // Button click animation and effects
+            shopBtn.addEventListener('click', function(e) {
+                // Scale animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Ripple effect
+                const rect = this.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.width = size + 'px';
+                ripple.style.height = size + 'px';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+
+                // Simulate navigation
+                console.log('Navigating to shop...');
+            });
+
+            // Hover effect for button
+            shopBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+
+            shopBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+
+            // Interactive hover effects for image patterns
+            imagePatterns.forEach(pattern => {
+                const parentElement = pattern.parentElement;
+                if (parentElement) {
+                    parentElement.addEventListener('mouseenter', function() {
+                        pattern.style.opacity = '0.8';
+                        pattern.style.transform = 'scale(1.02)';
+                        pattern.style.transition = 'all 0.5s ease';
+                    });
+                    
+                    parentElement.addEventListener('mouseleave', function() {
+                        pattern.style.opacity = '0.6';
+                        pattern.style.transform = 'scale(1)';
+                    });
+                }
+            });
+
+            // Parallax effect on mouse move (only on desktop)
+            if (window.innerWidth > 768) {
+                document.addEventListener('mousemove', function(e) {
+                    const mouseX = e.clientX / window.innerWidth;
+                    const mouseY = e.clientY / window.innerHeight;
+                    
+                    imagePatterns.forEach((pattern, index) => {
+                        const speed = (index + 1) * 0.5;
+                        const xOffset = (mouseX - 0.5) * speed * 20;
+                        const yOffset = (mouseY - 0.5) * speed * 20;
+                        
+                        // For flipped patterns, we need to account for the scaleX(-1) transform
+                        if (pattern.classList.contains('right-image-pattern')) {
+                            pattern.style.transform = `scaleX(-1) translate(${-xOffset}px, ${yOffset}px)`;
+                        } else {
+                            pattern.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+                        }
+                    });
+                });
+            }
+
+            // Add CSS for ripple animation
+            if (!document.querySelector('#ripple-style')) {
+                const style = document.createElement('style');
+                style.id = 'ripple-style';
+                style.textContent = `
+                    @keyframes ripple {
+                        to {
+                            transform: scale(4);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Random subtle animation for patterns (reduced for mobile performance)
+            const animationInterval = window.innerWidth > 768 ? 5000 : 10000;
+            setInterval(() => {
+                imagePatterns.forEach(pattern => {
+                    const randomRotation = (Math.random() - 0.5) * 2;
+                    const randomScale = 0.98 + Math.random() * 0.04;
+                    
+                    if (pattern.classList.contains('right-image-pattern')) {
+                        pattern.style.transform = `scaleX(-1) rotate(${randomRotation}deg) scale(${randomScale})`;
+                    } else {
+                        pattern.style.transform += ` rotate(${randomRotation}deg) scale(${randomScale})`;
+                    }
+                });
+            }, animationInterval);
+
+            // Reset pattern transforms periodically
+            setInterval(() => {
+                imagePatterns.forEach(pattern => {
+                    if (pattern.classList.contains('right-image-pattern')) {
+                        pattern.style.transform = 'scaleX(-1)';
+                    } else {
+                        pattern.style.transform = 'translate(0px, 0px) rotate(0deg) scale(1)';
+                    }
+                    pattern.style.transition = 'transform 2s ease';
+                });
+            }, 30000);
+
+            // Handle window resize for responsive behavior
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    // Reset transforms on resize to prevent layout issues
+                    imagePatterns.forEach(pattern => {
+                        if (pattern.classList.contains('right-image-pattern')) {
+                            pattern.style.transform = 'scaleX(-1)';
+                        } else {
+                            pattern.style.transform = 'translate(0px, 0px) rotate(0deg) scale(1)';
+                        }
+                    });
+                }, 250);
+            });
+
+            // Performance optimization: Reduce animations on mobile devices
+            if (window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                imagePatterns.forEach(pattern => {
+                    pattern.style.animation = 'none';
+                });
+            }
+        });
+    </script>
+<!-- Photo Grid-->
+ <style>
+    /* ---- SAME CSS AS YOUR CODE ---- */
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background-color:#f5f5f5;padding:20px;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:20px;}
+    .products-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .product-card {position:relative;width:220px;height:280px;background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);overflow:hidden;}
+    .product-card img {width:100%;height:100%;object-fit:cover;display:block;}
+    .demo-button {position:absolute;top:10px;right:10px;background-color:rgba(248,248,248,.9);color:#333;padding:0;border:none;border-radius:50%;font-size:14px;font-weight:600;cursor:pointer;transition:all .3s ease;width:22px;height:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+    .demo-button:hover {background-color:#f8f8f8;transform:scale(1.1);}
+    .modal-overlay {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.4);z-index:1000;padding:20px;overflow-y:auto;}
+    .modal-overlay.active {display:flex;align-items:center;justify-content:center;}
+    .modal-content {background:white;border-radius:0;box-shadow:0 8px 32px rgba(0,0,0,.2);width:500px;position:relative;animation:modalSlideIn .3s ease-out;}
+    @keyframes modalSlideIn {from{opacity:0;transform:translateY(-20px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .modal-header {position:relative;padding:0;}
+    .close-button {position:absolute;top:20px;right:20px;background:transparent;border:none;cursor:pointer;font-size:24px;font-weight:300;color:#999;z-index:10;width:30px;height:30px;display:flex;align-items:center;justify-content:center;line-height:1;}
+    .close-button:hover {color:#666;}
+    .modal-body {display:grid;grid-template-columns:200px 1fr;gap:0;padding:20px;}
+    .product-image-section {background:#f0f0f0;display:flex;align-items:center;justify-content:center;padding:15px;margin-right:20px;}
+    .product-image {width:100%;max-width:150px;height:180px;object-fit:cover;border-radius:0;}
+    .product-details {display:flex;flex-direction:column;justify-content:flex-start;}
+    .product-info h2 {font-size:20px;font-weight:400;color:#333;margin-bottom:8px;line-height:1.2;}
+    .product-price {font-size:20px;font-weight:400;color:#333;margin-bottom:15px;}
+    .product-description {font-size:14px;line-height:1.4;color:#666;margin-bottom:25px;}
+    .option-group {margin-bottom:20px;}
+    .option-label {font-size:14px;font-weight:400;color:#333;margin-bottom:8px;display:block;}
+    .color-options {display:flex;gap:0;border:1px solid #ccc;overflow:hidden;margin-bottom:20px;}
+    .color-option {flex:1;padding:12px 20px;border:none;background:white;cursor:pointer;font-size:14px;font-weight:400;transition:all .2s ease;border-right:1px solid #ccc;text-align:center;}
+    .color-option:last-child {border-right:none;}
+    .color-option.active {background:#333;color:white;}
+    .color-option:not(.active):hover {background:#f8f9fa;}
+    .size-select-wrapper {position:relative;margin-bottom:25px;}
+    .size-select {width:100%;padding:12px 35px 12px 12px;border:1px solid #ccc;font-size:14px;background:white;cursor:pointer;appearance:none;color:#666;}
+    .size-select:focus {outline:none;border-color:#333;}
+    .dropdown-arrow {position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;color:#666;font-size:12px;}
+    .add-to-cart-btn {width:100%;background:#000;color:white;border:none;padding:15px;font-size:14px;font-weight:400;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .3s ease;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;}
+    .add-to-cart-btn:hover {background:#333;}
+    .add-to-cart-btn:active {transform:translateY(1px);}
+    .arrow-icon {font-size:16px;transition:transform .3s ease;}
+    .add-to-cart-btn:hover .arrow-icon {transform:translateX(3px);}
+
+/* ===== POPUP DESIGN UPDATED ===== */
+.modal-content {
+  background: #fff;
+  width: 600px;
+  max-width: 95%;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,.25);
+  animation: modalSlideIn .3s ease-out;
+}
+
+.modal-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-image-section {
+  flex: 0 0 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.product-info h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.product-description {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 18px;
+  max-width: 95%;
+}
+
+.option-group {
+  margin-bottom: 18px;
+  width: 100%;              /* ✅ full width group */
+}
+
+.option-label {
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.color-options {
+  display: flex;
+  width: 100%;              /* ✅ full width color buttons */
+  border: 1px solid #ccc;
+}
+
+.color-option {
+  flex: 1;
+  padding: 10px;
+  font-size: 13px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  border-right: 1px solid #ccc;
+}
+
+.color-option:last-child {
+  border-right: none;
+}
+
+.color-option.active {
+  background: #000;
+  color: #fff;
+}
+
+.size-select-wrapper {
+  position: relative;
+  width: 100%;              /* ✅ full width size select */
+  margin-bottom: 18px;
+}
+
+.size-select {
+  width: 100%;              /* ✅ expand select box */
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  color: #444;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: #444;
+}
+
+.add-to-cart-btn {
+  width: 100%;              /* ✅ button full width */
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 13px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.add-to-cart-btn:hover {
+  background: #333;
+}
+
+
+  </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+  <!-- Products Grid -->
+  <div class="products-grid">
+    <div class="product-card">
+      <img src="images/0ed2750ebcfd81fdfe1b5bba6550f2f62aeb8236.png" alt="Product 1">
+      <button class="demo-button" onclick="openModal(0)">+</button>
+    </div>
+    <div class="product-card">
+      <img src="images/d3f535ca1389eb820e66aabae6aac48a9c0666e7.png" alt="Product 2">
+      <button class="demo-button" onclick="openModal(1)">+</button>
+    </div>
+    <div class="product-card">
+      <img src="images/92d307966800f906112421cf2a2d71d630964d69.png" alt="Product 3">
+      <button class="demo-button" onclick="openModal(2)">+</button>
+    </div>
+    <div class="product-card">
+      <img src="images/fed16528f23003f0d54e6abdb1787e6b16662980.png" alt="Product 4">
+      <button class="demo-button" onclick="openModal(3)">+</button>
+    </div>
+    <div class="product-card">
+      <img src="images/2011e9b4a7b03c2b79c4aebd2f40ab7926720377.png" alt="Product 5">
+      <button class="demo-button" onclick="openModal(4)">+</button>
+    </div>
+    <div class="product-card">
+      <img src="images/f5f95e8ed2c25b6bc010fdcfc3a88a834462323a.png" alt="Product 6">
+      <button class="demo-button" onclick="openModal(5)">+</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-button" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="product-image-section">
+          <img id="modalImage" src="" alt="Product" class="product-image" />
+        </div>
+        <div class="product-details">
+          <div class="product-info">
+            <h2 id="modalTitle"></h2>
+            <div id="modalPrice" class="product-price"></div>
+            <p id="modalDescription" class="product-description"></p>
+          </div>
+          <div class="option-group">
+            <label class="option-label">Color</label>
+            <div class="color-options">
+              <button class="color-option active" data-color="blue">Blue</button>
+              <button class="color-option" data-color="black">Black</button>
+            </div>
+          </div>
+          <div class="option-group">
+            <label class="option-label">Size</label>
+            <div class="size-select-wrapper">
+              <select class="size-select" id="sizeSelect">
+                <option value="">Choose your size</option>
+                <option value="xs">XS</option><option value="s">S</option>
+                <option value="m">M</option><option value="l">L</option>
+                <option value="xl">XL</option><option value="xxl">XXL</option>
+              </select>
+              <span class="dropdown-arrow">▼</span>
+            </div>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart()">
+            ADD TO CART <span class="arrow-icon">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Products data
+    const products = [
+      {
+        title: "Orange Wide Leg",
+        price: "980,00€",
+        description: "This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.",
+        image: "images/0ed2750ebcfd81fdfe1b5bba6550f2f62aeb8236.png"
+      },
+      {
+        title: "Tailored Jacket",
+        price: "980,00€",
+        description: "This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.",
+        image: "images/d3f535ca1389eb820e66aabae6aac48a9c0666e7.png"
+      },
+      {
+        title: "Accordion Pleated Dress",
+        price: "980,00€€",
+        description: "This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.",
+        image: "images/92d307966800f906112421cf2a2d71d630964d69.png"
+      },
+      {
+        title: "Green Trench Coat",
+        price: "980,00€",
+        description: "This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.",
+        image: "images/fed16528f23003f0d54e6abdb1787e6b16662980.png"
+      },
+      {
+        title: "Tennis Blue T-Shirt",
+        price: "980,00€",
+        description: "This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.",
+        image: "images/2011e9b4a7b03c2b79c4aebd2f40ab7926720377.pn"
+      },
+      {
+        title: "Long Sleeve Tennis Top",
+        price: "980,00€",
+        description: "This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.",
+        image: "images/f5f95e8ed2c25b6bc010fdcfc3a88a834462323a.png"
+      }
+    ];
+
+    function openModal(index) {
+      const product = products[index];
+      document.getElementById('modalImage').src = product.image;
+      document.getElementById('modalTitle').textContent = product.title;
+      document.getElementById('modalPrice').textContent = product.price;
+      document.getElementById('modalDescription').textContent = product.description;
+
+      const modal = document.getElementById('productModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('productModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const colorOptions = document.querySelectorAll('.color-option');
+      colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          colorOptions.forEach(opt => opt.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    });
+
+    function addToCart() {
+      const sizeSelect = document.getElementById('sizeSelect');
+      const selectedColor = document.querySelector('.color-option.active').dataset.color;
+      const selectedSize = sizeSelect.value;
+      if (!selectedSize) {
+        alert('Please select a size');
+        sizeSelect.focus();
+        return;
+      }
+      alert(`Added to cart: ${document.getElementById('modalTitle').textContent}\nColor: ${selectedColor}\nSize: ${selectedSize.toUpperCase()}\nPrice: ${document.getElementById('modalPrice').textContent}`);
+      closeModal();
+    }
+
+    document.getElementById('productModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    document.querySelector('.modal-content').addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+    </body>
+</html>
+
